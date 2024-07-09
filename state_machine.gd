@@ -24,8 +24,8 @@ func _process(delta) -> void:
 func _physics_process(delta) -> void:
 	CURRENT_STATE.physics_update(delta)
 
-func _input(event: InputEvent): # Tramite questa funzione si evita di controllare nell'update degli state se degli input vengono attivati
-	CURRENT_STATE.handle_input(event) #In questo modo se arriva un interrupt chiamo l'handle solo dello state attuale
+func _input(event: InputEvent): # This function avoids checking whether inputs are activated in the state update
+	CURRENT_STATE.handle_input(event) # This way if an interrupt arrives I only call the handle of the current state
 
 func on_child_transition(new_state_name: StringName) -> void:
 	var new_state = states.get(new_state_name)
